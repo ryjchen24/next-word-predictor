@@ -4,8 +4,8 @@ import re
 def tokenize(str):
     str = str.lower().strip()
     str = re.sub(r"([.!?])", r" \1", str)
-    str = re.sub(r"[^a-zA-Z!?]+", r" ", str)
-    return str.strip()
+    str = re.sub(r"[^a-z0-9'.!?]+", " ", str)
+    return str.split()
 
 def vocab_builder(words):
     vocab = sorted(set(words))

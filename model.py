@@ -12,9 +12,9 @@ class NextWordRNN(nn.Module):
         self.fc = nn.Linear(hidden_size, vocab_size)
 
     def forward(self, input):
-        embedded = self.embedding(self.dropout(input))
+        embedded = self.embedding(input)
+        embedded = self.dropout(embedded)
         output, hidden = self.gru(embedded)
-        
         last_hidden = output[:, -1, :]
         out = self.fc(last_hidden)
         return out
