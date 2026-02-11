@@ -1,8 +1,8 @@
 # Next Word Predictor (PyTorch RNN)
 
-This Natural Language Processing (NLP) project that builds and uses a **GRU=based Recurrent Neural Network (RNN)** in PyTorch to generate next-word suggestions from plain text data.
+This Natural Language Processing (NLP) project builds and uses a **GRU=based Recurrent Neural Network (RNN)** in PyTorch to generate next-word suggestions from plain text data.
 
-I built this project was built to explore core NLP and deep learning concepts including:
+I built this project to explore core NLP and deep learning concepts including:
 
 - Tokenization
 - Vocabulary construction
@@ -72,13 +72,13 @@ My nlp model is trained on 6 books that were downloaded by Project Gutenberg (th
 
 ---
 
-## Notes
+## Takeaways/Notes
 
-- Larger datasets improved predictions
-- Vocabulary size impacts model complexity
-- Training time depended heavily hardware & vocab size
-- This is a word-level model
-- Hard to find extremely accurate models since there are many, many ways to create sentences
+This project helped me heavily on applying NLP through the use of a RNN, these are some observations specifically about this project that I had:
+- Larger datasets improved predictions but servely affected training time
+- Vocabulary size impacted model complexity heavily
+- Hard to find extremely accurate models for a project like this since there are many, many ways to create sentences
+- There are a ton of different ways to tweak a model to make the training result different
 
 ---
 
