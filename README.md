@@ -16,6 +16,7 @@ I built this project to explore core NLP and deep learning concepts including:
 ## 🚀 Features
 
 ✅ Trained on multiple `.txt` books from the Project Gutenberg
+
 ✅ Custom tokenizer (no NLTK / spaCy required)  
 ✅ Automatic vocabulary building  
 ✅ GRU-based RNN architecture  
