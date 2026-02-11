@@ -55,9 +55,7 @@ train_dataloader = DataLoader(train_data, batch_size=BATCH_SIZE, shuffle=True)
 val_dataloader = DataLoader(val_data, batch_size=BATCH_SIZE)
 
 
-
 # Model, training and saving
-
 
 model = NextWordRNN(len(word_to_idx)).to(DEVICE)
 loss_fn = nn.CrossEntropyLoss()
