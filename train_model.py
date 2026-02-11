@@ -6,8 +6,8 @@ from model import NextWordRNN
 from data_utils import tokenize, vocab_builder, sequential_word_builder
 
 SEQ_LEN = 5
-EPOCHS = 10
-LR = 0.001
+EPOCHS = 5
+LR = 0.0005
 BATCH_SIZE = 512
 VAL_SPLIT = 0.1
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -90,3 +90,10 @@ for epoch in range(EPOCHS):
         val_loss /= len(val_dataloader.dataset)
     
     print(f"Epoch {epoch+1}/{EPOCHS} | Train Loss: {training_loss:.4f} | Val Loss: {val_loss:.4f}")
+
+torch.save({
+    "model_state": model.state_dict(),
+    "word_to_idx": word_to_idx,
+    "idx_to_word": idx_to_word
+}, "model.pth")
+print("Saved Pytorch model as model.pth")
