@@ -87,11 +87,5 @@ My nlp model is trained on 6 books that were downloaded by Project Gutenberg (th
 To download and run this project locally, clone the repository using Git:
 
 git clone https://github.com/ryjchen24/next-word-predictor
-
-Navigate into the project directory:
-
-cd next_word_predictor
-
-Install required dependencies:
-
+cd next-word-predictor
 pip install torch
