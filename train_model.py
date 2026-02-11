@@ -5,9 +5,9 @@ from torch.utils.data import Dataset, DataLoader, random_split
 from model import NextWordRNN
 from data_utils import tokenize, vocab_builder, sequential_word_builder
 
-SEQ_LEN = 5
-EPOCHS = 5
-LR = 0.0005
+SEQ_LEN = 15
+EPOCHS = 6
+LR = 0.0015
 BATCH_SIZE = 512
 VAL_SPLIT = 0.1
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -59,7 +59,7 @@ val_dataloader = DataLoader(val_data, batch_size=BATCH_SIZE)
 
 model = NextWordRNN(len(word_to_idx)).to(DEVICE)
 loss_fn = nn.CrossEntropyLoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=LR)
+optimizer = torch.optim.AdamW(model.parameters(), lr=LR, weight_decay=1e-2)
 
 print("Training model")
 for epoch in range(EPOCHS):
@@ -72,6 +72,7 @@ for epoch in range(EPOCHS):
         outputs = model(batch_X)
         loss : torch.Tensor = loss_fn(outputs, batch_y)
         loss.backward()
+        torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         optimizer.step()
         training_loss += loss.item() * batch_X.size(0)
     

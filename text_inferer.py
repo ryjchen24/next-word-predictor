@@ -3,7 +3,7 @@ import torch.nn.functional as F
 from model import NextWordRNN
 from data_utils import tokenize
 
-SEQ_LEN = 4
+SEQ_LEN = 10
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 checkpoint = torch.load("model.pth", map_location=DEVICE)

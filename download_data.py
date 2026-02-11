@@ -13,9 +13,14 @@ urls = {
     "the_sun_also_rises.txt": "https://www.gutenberg.org/cache/epub/67138/pg67138.txt",
     "ulysses.txt": "https://www.gutenberg.org/cache/epub/4300/pg4300.txt",
     "pride_prejudice.txt": "https://www.gutenberg.org/cache/epub/1342/pg1342.txt",
+    "sherlock_holmes.txt": "https://www.gutenberg.org/cache/epub/1661/pg1661.txt",
+    "an_american_tragedy.txt": "https://www.gutenberg.org/cache/epub/75181/pg75181.txt",
+    "war_and_peace.txt": "https://www.gutenberg.org/cache/epub/2600/pg2600.txt",
 }
 
 for name, url in urls.items():
     with urllib.request.urlopen(url, context=ssl_context) as r:
         with open(f"data/{name}", "wb") as f:
             f.write(r.read())
+
+print("All .txt files downloaded")

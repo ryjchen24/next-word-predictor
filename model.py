@@ -1,12 +1,12 @@
 import torch.nn as nn
 
 class NextWordRNN(nn.Module):
-    def __init__(self, vocab_size, hidden_size=256, dropout_p=0.1):
+    def __init__(self, vocab_size, hidden_size=256, dropout_p=0.2):
         super(NextWordRNN, self).__init__()
 
         self.hidden_size = hidden_size
         self.embedding = nn.Embedding(vocab_size, hidden_size)
-        self.gru = nn.GRU(hidden_size, hidden_size, batch_first=True)
+        self.gru = nn.GRU(hidden_size, hidden_size, num_layers=2, batch_first=True, dropout=dropout_p)
         self.dropout = nn.Dropout(dropout_p)
 
         self.fc = nn.Linear(hidden_size, vocab_size)
