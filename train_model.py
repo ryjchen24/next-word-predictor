@@ -72,7 +72,9 @@ for epoch in range(EPOCHS):
         outputs = model(batch_X)
         loss : torch.Tensor = loss_fn(outputs, batch_y)
         loss.backward()
+
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+        
         optimizer.step()
         training_loss += loss.item() * batch_X.size(0)
     
